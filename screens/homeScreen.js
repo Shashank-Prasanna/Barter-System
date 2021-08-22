@@ -28,10 +28,9 @@ export default class HomeScreen extends React.Component {
   keyExtractor = (item,index) => index.toString(); 
 
   renderItem = ({item,index}) => {
-    console.log(item + ' ' + index)
+    console.log(item.description)
     return(
       <ListItem 
-      style={{flex: 1}}
       key={index} 
       title={item.item_name}
       subtitle={item.description}     
@@ -39,7 +38,7 @@ export default class HomeScreen extends React.Component {
       rightElement={
         <TouchableOpacity style={styles.touchableopacityorange} 
         onPress={() => {this.props.navigations.navigate('UserDetails', {'details' : item})}}>
-          <Text style={{color:'#ffffff'}}>Trade</Text>
+          <Text>Trade</Text>
         </TouchableOpacity>
       }
         bottomDivider
