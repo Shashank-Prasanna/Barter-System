@@ -16,9 +16,10 @@ export default class ExchangeScreen extends React.Component {
   addItem = () => {
     console.log(this.state.username)
     db.collection('exchange_requests').add({
-      'username' : this.state.username,
-      'item_name': this.state.item_name,
-      'description': this.state.description
+      username : this.state.username,
+      item_name: this.state.item_name,
+      description: this.state.description,
+      exchange_ID: this.createUniqueID()
     })
     .catch((error) => {
       console.log(error)
@@ -32,6 +33,10 @@ export default class ExchangeScreen extends React.Component {
         }}
       ]
     )
+  }
+
+  createUniqueID = () => {
+    return Math.random().toString(36).substring(8)
   }
 
   render() {
