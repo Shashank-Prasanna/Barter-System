@@ -28,7 +28,6 @@ export default class HomeScreen extends React.Component {
   keyExtractor = (item,index) => index.toString(); 
 
   renderItem = ({item,index}) => {
-    console.log(item.description)
     return(
       <ListItem 
       key={index} 
@@ -36,7 +35,7 @@ export default class HomeScreen extends React.Component {
       subtitle={item.description}     
       titleStyle={{color: '#121212', fontWeight: 'bold'}}
       rightElement={
-        <TouchableOpacity style={styles.touchableopacityorange} 
+        <TouchableOpacity
         onPress={() => {this.props.navigations.navigate('UserDetails', {'details' : item})}}>
           <Text>Trade</Text>
         </TouchableOpacity>
@@ -45,10 +44,12 @@ export default class HomeScreen extends React.Component {
         />
     )
   }
+  
 
   componentDidMount() {
     this.getData()
   }
+
   
   componentWillUnmount() { 
     this.request_ref(); 

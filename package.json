@@ -28,7 +28,9 @@
     "react-navigation": "*",
     "react-navigation-drawer": "*",
     "react-navigation-material-bottom-tabs": "*",
-    "react-navigation-tabs": "*"
+    "react-navigation-tabs": "*",
+    "expo-image-picker": "~10.1.4",
+    "react-native-unimodules": "~0.13.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

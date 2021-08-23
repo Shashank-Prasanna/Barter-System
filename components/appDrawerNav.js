@@ -7,6 +7,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer'
 import SideBar from '../components/sideBar.js'
 import SettingsScreen from '../screens/settingsScreen' 
 import { TabNav } from '../components/tabNav'
+import MyBartersScreen from '../screens/myBartersScreen'
 
 export const AppDrawerNav = createDrawerNavigator({
   Home:{
@@ -14,6 +15,9 @@ export const AppDrawerNav = createDrawerNavigator({
   },
   Settings:{
     screen: SettingsScreen,
+  },
+  MyBarters:{
+    screen: MyBartersScreen,
   },
 },
 {

@@ -92,7 +92,7 @@ export default class AuthScreen extends React.Component {
 	render() {
 		return(
 			<View style={styles.container}>
-      {this.state.isModalVisible == true ? this.showModal() : console.log('nope')}
+      {this.state.isModalVisible == true ? this.showModal() : null}
 				<TextInput placeholderTextColor='#cdcdcd' onChangeText={(text) => {this.setState({email: text})}} style={styles.textinput} placeholder='Email'/>
 				<TextInput placeholderTextColor='#cdcdcd' secureTextEntry={true} onChangeText={(text) => {this.setState({password: text})}}style={styles.textinput} placeholder='Password'/>
 				<TouchableOpacity onPress={() => {
