@@ -72,11 +72,6 @@ export default class SideBar extends React.Component {
     this.getUserInfo()
   }
 
-  componentDidUpdate(){
-    this.getUserInfo()
-    this.fetchImage(this.state.email)
-  }
-
 
   render() {
    return(
