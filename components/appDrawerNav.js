@@ -18,6 +18,9 @@ export const AppDrawerNav = createDrawerNavigator({
   },
   MyBarters:{
     screen: MyBartersScreen,
+    navigationOptions: {
+      title: 'My Barters',
+    }
   },
 },
 {
