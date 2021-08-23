@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions, Alert, Modal, ScrollView} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-view'
-import { DrawerItems } from '@react-navigation/drawer'
+import { DrawerItems } from 'react-native-drawer'
 import { Avatar } from 'react-native-elements'
 import * as ImagePicker from 'expo-image-picker';
 import firebase from 'firebase'

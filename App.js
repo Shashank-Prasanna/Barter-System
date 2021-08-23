@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Text, View, StyleSheet} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import AuthScreen from './screens/authScreen.js'
@@ -14,8 +13,6 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
-
-LogBox.ignoreAllLogs(true)
 
 const SwitchNav = createSwitchNavigator({
   AuthScreen:{screen: AuthScreen}, 

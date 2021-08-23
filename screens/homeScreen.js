@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions, Alert, Modal, FlatList } from 'react-native';
 import {ListItem} from 'react-native-elements'
-import firebase from 'firebase'
 import db from '../config'
 
 export default class HomeScreen extends React.Component {
