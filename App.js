@@ -5,6 +5,7 @@ import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import AuthScreen from './screens/authScreen.js'
 import { TabNav } from './components/tabNav'
 import { AppDrawerNav } from './components/appDrawerNav'
+import { LogBox } from 'react-native';
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
   );
 }
 
-console.disableYellowBox = true;
+LogBox.ignoreAllLogs(true)
 
 const SwitchNav = createSwitchNavigator({
   AuthScreen:{screen: AuthScreen}, 
