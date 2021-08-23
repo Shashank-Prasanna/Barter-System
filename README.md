@@ -1,4 +1,1 @@
-Roles in the app:
-- Person who is donating item (person who initiated the donation by submitting the form): **Donor/Barterer**
-
-- Person who is receiving item (person who pressed the button in the Home screen): **Exchanger/Recipient**
+This code is **broken**, saved only for future reference. It **WILL BE DELETED**. **DO NOT USE IT!**
