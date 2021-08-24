@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions, Alert, Modal, FlatList } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions, Alert, Modal, FlatList, ScrollView } from 'react-native';
 import {ListItem} from 'react-native-elements'
 import firebase from 'firebase'
 import db from '../config'
@@ -14,14 +14,10 @@ export default class HomeScreen extends React.Component {
 
   getData = () => {
     this.request_ref = db.collection('exchange_requests').onSnapshot((snapshot) => {
-      let requested_books_list = snapshot.docs.map((doc) => 
-      doc.data()
-      )
+      let requested_books_list = snapshot.docs.map(doc => doc.data())
       this.setState({
         requested_book_list: requested_books_list
       })
-      console.log(this.state.requested_book_list)
-      console.log('^ book list')
     })
   }
 
@@ -29,19 +25,22 @@ export default class HomeScreen extends React.Component {
 
   renderItem = ({item,index}) => {
     return(
-      <ListItem 
-      key={index} 
-      title={item.item_name}
-      subtitle={item.description}     
-      titleStyle={{color: '#121212', fontWeight: 'bold'}}
-      rightElement={
+      <View style={styles.container}>
+        <ListItem 
+        key={index} 
+        title={item.item_name}
+        subtitle={item.description}     
+        titleStyle={{color: 'green', fontWeight: 'bold'}}
+        style={{width: '100%'}}
+        rightElement={
         <TouchableOpacity
         onPress={() => {this.props.navigations.navigate('UserDetails', {'details' : item})}}>
           <Text>Trade</Text>
         </TouchableOpacity>
-      }
-        bottomDivider
-        />
+     }
+          bottomDivider
+          />
+      </View>
     )
   }
   
@@ -56,9 +55,16 @@ export default class HomeScreen extends React.Component {
   }
 
   render() {
+    {console.log(typeof this.state.requested_book_list)}
     return(
       <View style={styles.container}>
-        {this.state.requested_book_list === 0 ? (<Text>No items here!</Text>)          : (<FlatList keyExtractor={this.keyExtractor} data={this.state.requested_book_list} renderItem={this.renderItem} />)}
+        <ScrollView style={{}}> 
+          <FlatList
+            data={this.state.requested_book_list}
+            keyExtractor={this.keyExtractor}
+            renderItem={this.renderItem}
+            />
+        </ScrollView>
       </View>
     )
   }
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
 	container:{
 		paddingTop: 30,
     backgroundColor: '#232324',
-    flex: 1
+    flex: 1,
 	},
 	textinput:{
 		marginBottom: 20,
