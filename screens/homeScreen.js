@@ -30,11 +30,14 @@ export default class HomeScreen extends React.Component {
         key={index} 
         title={item.item_name}
         subtitle={item.description}     
-        titleStyle={{color: 'green', fontWeight: 'bold'}}
+        titleStyle={{color: '#ff681dff', fontWeight: 'bold'}}
         style={{width: '100%'}}
         rightElement={
         <TouchableOpacity
-        onPress={() => {this.props.navigations.navigate('UserDetails', {'details' : item})}}>
+          onPress={() => {
+            this.props.navigation.navigate('UserDetails',{"details": item})
+          }}
+          style={{backgroundColor: '#349b9aff', paddingHorizontal: 10, paddingVertical: 10}} >
           <Text>Trade</Text>
         </TouchableOpacity>
      }
