@@ -45,6 +45,7 @@ export default class UserDetailsScreen extends React.Component {
       exchange_ID: this.props.navigation.getParam('details')['exchange_ID'],
       barter_status: this.state.username + ' wants to trade',
     })
+    this.props.navigation.navigate('Home')
   }
 
   componentDidMount(){
