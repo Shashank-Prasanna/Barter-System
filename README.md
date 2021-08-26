@@ -7,8 +7,9 @@ App Container
                 +-- Tab Nav
                     +-- Home
                     +-- Exchange
-                +-- Settings
                 +-- My Barters
+                +-- Notifications
+                +-- Settings
             +-- User Details
         +-- Auth Screen
 
@@ -16,4 +17,8 @@ App Container
 Roles:
 - Barterer/Barter: Person who donates the item (by going to the Exchange screen)
 - Exchanger: Person who is the recipient of the item (Presses Trade on home screen)
+
+Statuses:
+- [exchanger] shows interest in [item_name]
+- [barterer] has sent the item
 
