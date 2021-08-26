@@ -43,9 +43,22 @@ export default class UserDetailsScreen extends React.Component {
       exchanger_email: this.state.email,
       exchanger_address: this.state.address,
       exchange_ID: this.props.navigation.getParam('details')['exchange_ID'],
-      barter_status: this.state.username + ' wants to trade',
+      barter_status: this.state.username + ' shows interest in ' + this.props.navigation.getParam('details')['item_name'],
     })
     this.props.navigation.navigate('Home')
+  }
+
+  addNotification = () => {
+    console.log('Add Notification')
+    db.collection('notifications').add({
+      user_ID: this.props.navigation.getParam('details')['username'],
+      exchanger_ID: this.state.email,
+      date: firebase.firestore.FieldValue.serverTimestamp(),
+      item_name: this.props.navigation.getParam('details')['item_name'],
+      notification_status: 'Unread',
+      message: this.state.username + ' shows interest in ' + this.props.navigation.getParam('details')['item_name'],
+      exchange_ID: this.props.navigation.getParam('details')['exchange_ID']
+    })
   }
 
   componentDidMount(){
@@ -57,7 +70,10 @@ export default class UserDetailsScreen extends React.Component {
       <View style={styles.container}>
         <Text style={styles.titleStyle}>{this.props.navigation.getParam('details')['item_name']}</Text>
         <Text style={styles.subtitleStyle}>{this.props.navigation.getParam('details')['description']}</Text>
-        <TouchableOpacity style={styles.touchableopacityorange} onPress={() => {this.addBarters()}}>
+        <TouchableOpacity style={styles.touchableopacityorange} onPress={() => {
+          this.addBarters()
+          this.addNotification()
+          }}>
           <Text style={{fontSize: 20}}>Barter</Text>
         </TouchableOpacity>
       </View>
