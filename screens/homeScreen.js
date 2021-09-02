@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions, Alert, Modal, FlatList, ScrollView } from 'react-native';
 import {ListItem} from 'react-native-elements'
+import CustomHeader from '../components/header'
 import firebase from 'firebase'
 import db from '../config'
 
@@ -61,6 +62,7 @@ export default class HomeScreen extends React.Component {
     {console.log(typeof this.state.requested_book_list)}
     return(
       <View style={styles.container}>
+        <CustomHeader navigation={this.props.navigation} title='Home'/>
         <ScrollView style={{}}> 
           <FlatList
             data={this.state.requested_book_list}
@@ -75,7 +77,6 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
 	container:{
-		paddingTop: 30,
     backgroundColor: '#232324',
     flex: 1,
 	},
